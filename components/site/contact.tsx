@@ -1,10 +1,10 @@
+import { ArrowUpRight } from "lucide-react"
 import type { Profile } from "@/content"
 import { Reveal } from "./reveal"
-import { Container, Label, PillButton } from "./ui"
+import { Container, Label } from "./ui"
 
 export function Contact({ p }: { p: Profile }) {
   const { contact } = p
-  const [primary, ...rest] = contact.links
 
   return (
     <>
@@ -18,22 +18,24 @@ export function Contact({ p }: { p: Profile }) {
             <Label>{contact.label}</Label>
             <h2 className="mx-auto mt-6 max-w-4xl text-heading-lg font-normal">{contact.title}</h2>
             <p className="mx-auto mt-6 max-w-[520px] text-body font-extralight text-mist">{contact.text}</p>
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
-              <PillButton href={primary.href}>
-                {contact.primaryPrefix} {primary.label}
-              </PillButton>
-              {rest.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="text-label font-semibold uppercase text-ash transition-colors hover:text-spark"
-                >
-                  {link.label}
-                </a>
+            <ul className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              {contact.links.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="group/link inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3.5 text-label font-semibold uppercase text-ash transition-all duration-300 hover:border-iris hover:bg-iris/15 hover:text-white hover:shadow-[0_0_40px_-6px_#8052ff] focus-visible:border-iris focus-visible:text-white focus-visible:outline-none"
+                  >
+                    {link.label}
+                    <ArrowUpRight
+                      className="size-4 transition-transform duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5"
+                      strokeWidth={1.5}
+                    />
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </Reveal>
         </div>
       </Container>

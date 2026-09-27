@@ -23,8 +23,6 @@ type Particle = {
   // Смещение от курсора (плавно затухает)
   ox: number; oy: number
   size: number; rot: number; spin: number; color: number
-  /** Порог растворения нижней части торса */
-  fade: number
 }
 
 type Ambient = {
@@ -44,70 +42,64 @@ function mulberry32(seed: number) {
 
 const MASK = 300
 
-/** Рисует силуэт по плечи (голова, шея, плечи) на скрытом холсте */
-function drawBust(ctx: CanvasRenderingContext2D) {
-  ctx.fillStyle = "#fff"
+/** Монограмма KV из толстых линий — одинаково на любой ОС, без зависимости от шрифтов */
+function drawMonogram(ctx: CanvasRenderingContext2D) {
+  ctx.strokeStyle = "#fff"
+  ctx.lineWidth = 30
+  ctx.lineJoin = "miter"
+  ctx.lineCap = "butt"
   ctx.beginPath()
-  ctx.ellipse(150, 88, 40, 50, 0, 0, Math.PI * 2) // голова
-  ctx.fill()
-  ctx.fillRect(130, 120, 40, 52) // шея
-  ctx.beginPath() // плечи и торс
-  ctx.moveTo(22, MASK)
-  ctx.bezierCurveTo(26, 212, 70, 186, 128, 170)
-  ctx.lineTo(172, 170)
-  ctx.bezierCurveTo(230, 186, 274, 212, 278, MASK)
-  ctx.closePath()
-  ctx.fill()
+  ctx.moveTo(48, 70) // K: ствол
+  ctx.lineTo(48, 230)
+  ctx.moveTo(52, 162) // K: верхняя ветвь
+  ctx.lineTo(140, 70)
+  ctx.moveTo(84, 128) // K: нижняя ветвь
+  ctx.lineTo(146, 230)
+  ctx.moveTo(166, 70) // V
+  ctx.lineTo(220, 228)
+  ctx.lineTo(274, 70)
+  ctx.stroke()
 }
 
-/** Точки силуэта: контур читается глазом, заливка даёт объём, низ растворяется */
-function createSilhouette(count: number, rand: () => number): Particle[] {
+/** Точки монограммы: контур читается глазом, заливка даёт объём */
+function createMonogram(count: number, rand: () => number): Particle[] {
   const mask = document.createElement("canvas")
   mask.width = MASK
   mask.height = MASK
   const mctx = mask.getContext("2d")
   if (!mctx) return []
-  drawBust(mctx)
+  drawMonogram(mctx)
   const data = mctx.getImageData(0, 0, MASK, MASK).data
   const inside = (x: number, y: number) =>
-    y >= MASK || (x >= 0 && x < MASK && y >= 0 && data[(y * MASK + x) * 4 + 3] > 128)
+    x >= 0 && x < MASK && y >= 0 && y < MASK && data[(y * MASK + x) * 4 + 3] > 128
 
   const edge: number[] = []
   const fill: number[] = []
-  // Полуширина силуэта на каждой строке — для псевдо-глубины
-  const rowMin = new Array<number>(MASK).fill(MASK)
-  const rowMax = new Array<number>(MASK).fill(-1)
   for (let y = 0; y < MASK; y += 2) {
     for (let x = 0; x < MASK; x += 2) {
       if (!inside(x, y)) continue
-      rowMin[y] = Math.min(rowMin[y], x)
-      rowMax[y] = Math.max(rowMax[y], x)
       const isEdge = !inside(x - 3, y) || !inside(x + 3, y) || !inside(x, y - 3) || !inside(x, y + 3)
       ;(isEdge ? edge : fill).push(x, y)
     }
   }
 
   return Array.from({ length: count }, () => {
-    const useEdge = rand() < 0.55
+    const useEdge = rand() < 0.6
     const pool = useEdge ? edge : fill
     const i = Math.floor(rand() * (pool.length / 2)) * 2
     const px = pool[i] + (rand() - 0.5) * 2
     const py = pool[i + 1] + (rand() - 0.5) * 2
-    const row = Math.floor(pool[i + 1])
-    const half = Math.max(1, (rowMax[row] - rowMin[row]) / 2)
-    const center = (rowMax[row] + rowMin[row]) / 2
-    const depth = Math.sqrt(Math.max(0, 1 - ((px - center) / half) ** 2)) * (half / MASK) * 1.6
     return {
       x: (px / MASK) * 2 - 1,
       y: (py / MASK) * 2 - 1,
-      z: (rand() < 0.5 ? -1 : 1) * depth * (useEdge ? 0.3 : rand()),
+      // Буквы — «толстые плиты»: заливка получает глубину, контур почти плоский
+      z: (rand() - 0.5) * (useEdge ? 0.08 : 0.3),
       sx: rand() * 1.6 - 0.3, sy: rand() * 1.6 - 0.3,
       ox: 0, oy: 0,
       size: 1.4 + rand() * 2.4,
       rot: rand() * Math.PI * 2,
       spin: (rand() - 0.5) * 0.02,
       color: Math.floor(rand() * PALETTE.length),
-      fade: rand(),
     }
   })
 }
@@ -148,7 +140,7 @@ export function ParticleCloud({ className }: { className?: string }) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const rand = mulberry32(42)
     const isSmall = window.innerWidth < 768
-    const cloud = createSilhouette(isSmall ? 900 : 2000, rand)
+    const cloud = createMonogram(isSmall ? 900 : 2000, rand)
     const ambient = createAmbient(isSmall ? 50 : 120, rand)
 
     let width = 0
@@ -189,15 +181,14 @@ export function ParticleCloud({ className }: { className?: string }) {
       const cosT = Math.cos(tilt)
       const sinT = Math.sin(tilt)
       const cx = width * 0.5
-      const radius = Math.min(width * 0.46, height * 0.44)
-      const cy = height - radius * 1.02
+      const radius = Math.min(width * 0.42, height * 0.44)
+      const cy = height * 0.5
 
       ctx.clearRect(0, 0, width, height)
       ctx.lineWidth = 1
       for (const row of paths) for (let d = 0; d < DEPTH_BUCKETS; d++) row[d] = new Path2D()
 
       for (const p of cloud) {
-        if ((p.y - 0.3) / 0.7 > p.fade) continue
         // Вращение вокруг Y, затем наклон по X
         const rx = p.x * cosA - p.z * sinA
         const rz = p.x * sinA + p.z * cosA

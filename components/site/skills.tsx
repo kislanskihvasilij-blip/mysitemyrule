@@ -6,11 +6,12 @@ import { Container, Label } from "./ui"
 const CLIENT_ACCENTS = ["#8052ff", "#ffb829", "#15846e"]
 
 export function Skills({ p }: { p: Profile }) {
-  const { skills, about, features, experience } = p
-  // Места работы — в карточке «Опыт в разных сферах»
-  const clients = experience.items
-    .slice(1, 4)
-    .map((item, i) => ({ name: item.place.split(",")[0], accent: CLIENT_ACCENTS[i] }))
+  const { skills, about, features } = p
+  // Компании — в карточке «Опыт в разных сферах»
+  const clients = features.trust.clients.map((name, i) => ({
+    name,
+    accent: CLIENT_ACCENTS[i % CLIENT_ACCENTS.length],
+  }))
 
   return (
     <Container id="skills" className="py-24 md:py-40">

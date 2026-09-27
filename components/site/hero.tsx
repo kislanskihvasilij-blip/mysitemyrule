@@ -6,7 +6,7 @@ import { Label, PillButton } from "./ui"
 export function Hero({ p }: { p: Profile }) {
   return (
     <section id="top" className="relative flex min-h-svh items-center overflow-hidden pt-24">
-      {/* Силуэт: справа на десктопе, фоном на мобильных */}
+      {/* Монограмма KV: справа на десктопе, фоном на мобильных */}
       <div className="pointer-events-none absolute inset-0 opacity-40 lg:pointer-events-auto lg:left-[45%] lg:opacity-100">
         <ParticleCloud />
       </div>

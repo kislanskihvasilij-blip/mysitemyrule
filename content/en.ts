@@ -48,7 +48,7 @@ export const en = {
     groups: [
       {
         title: "Business",
-        items: ["Business analytics", "Process analysis", "Sales", "Bitrix24 & CRM"],
+        items: ["Business analytics", "Process analysis", "Sales", "Bitrix24 & CRM", "Excel & automation"],
       },
       {
         title: "IT",
@@ -56,7 +56,7 @@ export const en = {
       },
       {
         title: "Design & web",
-        items: ["Photoshop", "Web design", "Wix & Django sites", "Websites & apps"],
+        items: ["Photoshop", "Web design", "Wix & Django sites", "Websites & apps", "Photo & video"],
       },
       {
         title: "Advertising & print",
@@ -82,7 +82,8 @@ export const en = {
     },
     trust: {
       title: "Experience across fields",
-      text: "Archives, advertising production, my own business and web development.",
+      text: "Advertising companies, a print shop, an archive, my own business and web development.",
+      clients: ["BariPrint", "Animatek", "Marshrut Media"],
     },
   },
 
@@ -90,6 +91,12 @@ export const en = {
     label: "Experience",
     title: "Where I’ve worked",
     items: [
+      {
+        period: "Now",
+        title: "Partnership with BariPrint",
+        place: "BariPrint print shop · Mikhail Bariban",
+        text: "Working together with the print shop on the website, design and advertising products.",
+      },
       {
         period: "1 year",
         title: "Websites & apps",
@@ -100,7 +107,19 @@ export const en = {
         period: "3 years",
         title: "Own business",
         place: "Self-employed",
-        text: "Key and alarm fob duplication, digital signature setup, 1C support.",
+        text: "Design, photo and video shooting, Excel optimisation and automation, digital signature setup and 1C support, key and alarm fob duplication.",
+      },
+      {
+        period: "1 year",
+        title: "Marshrut Media",
+        place: "Advertising company",
+        text: "Work in the advertising industry.",
+      },
+      {
+        period: "1 year",
+        title: "Transreklama",
+        place: "Advertising company",
+        text: "Work in the advertising industry.",
       },
       {
         period: "2 years",
@@ -179,7 +198,6 @@ export const en = {
     label: "Contact",
     title: "Need advice? Drop me a line",
     text: "Tell me about your task — I’ll reply within a day and suggest how to solve it.",
-    primaryPrefix: "Message on",
     links: [
       { label: "Telegram", href: "https://t.me/username" },
       { label: "Email", href: "mailto:you@example.com" },
