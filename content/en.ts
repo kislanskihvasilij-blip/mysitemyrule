@@ -48,7 +48,7 @@ export const en = {
     groups: [
       {
         title: "Business",
-        items: ["Business analytics", "Process analysis", "Sales", "Bitrix24 & CRM", "Excel & automation"],
+        items: ["Business analytics", "Process analysis", "Sales", "Bitrix24 & CRM", "Excel & automation", "Yandex Direct & Business"],
       },
       {
         title: "IT",
@@ -149,11 +149,11 @@ export const en = {
     items: [
       {
         title: "BariPrint",
-        category: "Website redesign",
+        category: "Website & promotion",
         year: "2026",
-        description: "A print shop website in Krasnodar: large-format, offset, UV printing and outdoor advertising.",
-        role: "Design & development",
-        tags: ["Redesign", "SEO", "Landing"],
+        description: "A print shop website in Krasnodar: large-format, offset, UV printing and outdoor advertising. Set up Yandex Direct ads and the Yandex Business listing; I supervise the projects.",
+        role: "Yandex Direct, Yandex Business, project supervision",
+        tags: ["Yandex Direct", "Yandex Business", "Supervision"],
         url: "",
         cover: "",
         accent: "#8052ff",
