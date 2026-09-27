@@ -13,9 +13,10 @@ export function About({ p }: { p: Profile }) {
             <Image
               src={about.photo}
               alt={p.fullName}
-              width={960}
-              height={1200}
-              className="size-full object-cover grayscale transition duration-700 hover:grayscale-0"
+              width={1500}
+              height={2000}
+              sizes="(min-width: 1024px) 600px, 100vw"
+              className="size-full object-cover object-[50%_30%] transition duration-700 hover:scale-[1.03]"
             />
           ) : (
             <div className="flex size-full items-end bg-[radial-gradient(circle_at_30%_20%,#8052ff55,transparent_55%),radial-gradient(circle_at_80%_90%,#15846e55,transparent_50%)] p-6">

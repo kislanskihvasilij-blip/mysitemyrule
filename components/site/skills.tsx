@@ -10,7 +10,7 @@ export function Skills({ p }: { p: Profile }) {
   // Места работы — в карточке «Опыт в разных сферах»
   const clients = experience.items
     .slice(1, 4)
-    .map((item, i) => ({ name: item.place, accent: CLIENT_ACCENTS[i] }))
+    .map((item, i) => ({ name: item.place.split(",")[0], accent: CLIENT_ACCENTS[i] }))
 
   return (
     <Container id="skills" className="py-24 md:py-40">

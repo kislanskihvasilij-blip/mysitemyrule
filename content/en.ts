@@ -7,8 +7,8 @@ export const en = {
     description:
       "I analyse and optimise business processes, set up IT and CRM, and create advertising, design and websites. Krasnodar and remote.",
   },
-  alias: "Vasiliy", // TODO
-  fullName: "Vasiliy Kislanskikh", // TODO
+  alias: "kislyanski.v",
+  fullName: "Vasiliy Kislyanskikh",
   city: "Krasnodar · open to remote work",
   langSwitch: { label: "RU", href: "/ru" },
   nav: [
@@ -33,7 +33,7 @@ export const en = {
       "I’m Vasiliy, 24. I’ve worked in an archive, at an advertising company and for myself — and built a rare mix of skills: from business analytics and 1C to printing, design and web development.",
       "Need advice? Reach out about anything in the fields I’ve worked in or care about — I’ll help you figure out even adjacent problems.",
     ],
-    photo: "",
+    photo: "/photo.webp",
     photoPlaceholder: "Your photo goes here",
     facts: [
       { value: "7+ yrs", label: "of work experience" },
@@ -104,9 +104,9 @@ export const en = {
       },
       {
         period: "2 years",
-        title: "Advertising company",
-        place: "Animatek",
-        text: "Advertising production, latex and 3D printing.",
+        title: "Sales & ad production",
+        place: "Animatek, advertising company",
+        text: "Sales manager handling warm and cold calls, then a year in production making advertising products, latex and 3D printing.",
       },
       {
         period: "2 years",
@@ -184,6 +184,7 @@ export const en = {
       { label: "Telegram", href: "https://t.me/username" },
       { label: "Email", href: "mailto:you@example.com" },
       { label: "MAX", href: "https://max.ru/" },
+      { label: "VK", href: "https://vk.ru/kislyanski" },
     ],
   },
 } satisfies Profile
