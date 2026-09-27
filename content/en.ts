@@ -60,7 +60,7 @@ export const en = {
       },
       {
         title: "Advertising & print",
-        items: ["Advertising production", "Latex printing", "3D printing"],
+        items: ["Advertising production", "Latex printing", "3D printing", "Vehicle wrapping", "Digital ad screens"],
       },
     ],
   },
@@ -113,13 +113,13 @@ export const en = {
         period: "1 year",
         title: "Marshrut Media",
         place: "Advertising company",
-        text: "Work in the advertising industry.",
+        text: "Applying advertising wraps to cars and public transport.",
       },
       {
         period: "1 year",
         title: "Transreklama",
         place: "Advertising company",
-        text: "Work in the advertising industry.",
+        text: "Vehicle wrapping, plus loading content onto and maintaining advertising screens in public transport.",
       },
       {
         period: "2 years",
