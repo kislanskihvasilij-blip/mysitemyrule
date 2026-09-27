@@ -94,8 +94,8 @@ export const en = {
       {
         period: "Now",
         title: "Partnership with BariPrint",
-        place: "BariPrint print shop · Mikhail Bariban",
-        text: "Working together with the print shop on the website, design and advertising products.",
+        place: "Self-employed · together with Mikhail Bariban",
+        text: "Design and advertising products, vehicle wrapping, client management and project supervision.",
       },
       {
         period: "1 year",
@@ -104,10 +104,10 @@ export const en = {
         text: "Websites, VK Mini Apps, mobile apps and automation for businesses.",
       },
       {
-        period: "3 years",
-        title: "Own business",
-        place: "Self-employed",
-        text: "Design, photo and video shooting, Excel optimisation and automation, digital signature setup and 1C support, key and alarm fob duplication.",
+        period: "1 year",
+        title: "Transreklama",
+        place: "Advertising company",
+        text: "Vehicle wrapping, plus loading content onto and maintaining advertising screens in public transport.",
       },
       {
         period: "1 year",
@@ -116,10 +116,10 @@ export const en = {
         text: "Applying advertising wraps to cars and public transport.",
       },
       {
-        period: "1 year",
-        title: "Transreklama",
-        place: "Advertising company",
-        text: "Vehicle wrapping, plus loading content onto and maintaining advertising screens in public transport.",
+        period: "3 years",
+        title: "Own business",
+        place: "Self-employed",
+        text: "Design, photo and video shooting, Excel optimisation and automation, digital signature setup and 1C support, key and alarm fob duplication.",
       },
       {
         period: "2 years",
