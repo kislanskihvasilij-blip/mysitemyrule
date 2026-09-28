@@ -60,7 +60,7 @@ function WorkRow({ work, index, roleLabel }: { work: Work; index: number; roleLa
     <div className="aspect-[4/3] overflow-hidden rounded-[24px] transition-transform duration-700 ease-out group-hover:scale-[0.98]">
       <div className="size-full transition-transform duration-700 ease-out group-hover:scale-[1.06]">
         {work.cover ? (
-          <Image src={work.cover} alt={work.title} width={1200} height={900} className="size-full object-cover" />
+          <Image src={work.cover} alt={work.title} width={1200} height={900} sizes="(min-width: 768px) 600px, 92vw" className="size-full object-cover" />
         ) : (
           <GenerativeCover work={work} index={index} />
         )}
@@ -80,7 +80,7 @@ function WorkRow({ work, index, roleLabel }: { work: Work; index: number; roleLa
         )}
       </h3>
       <p className="mt-4 max-w-[460px] text-body font-extralight text-mist">{work.description}</p>
-      <p className="mt-4 text-sm font-extralight text-ash">{roleLabel}: {work.role}</p>
+      <p className="mt-4 text-sm font-light text-mist">{roleLabel}: {work.role}</p>
       <ul className="mt-6 flex flex-wrap gap-2">
         {work.tags.map((tag) => (
           <li key={tag} className="rounded-full border border-white/10 px-3 py-1 text-xs text-ash">

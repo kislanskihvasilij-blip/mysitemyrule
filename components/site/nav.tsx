@@ -1,4 +1,5 @@
 import type { Profile } from "@/content"
+import { MobileMenu } from "./mobile-menu"
 import { PillButton } from "./ui"
 
 function LogoMark() {
@@ -19,12 +20,12 @@ function LogoMark() {
 export function Nav({ p }: { p: Profile }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-linear-to-b from-black via-black/70 to-transparent">
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-5 sm:px-6">
+      <div className="relative mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-5 sm:px-6">
         <a href="#top" className="flex items-center gap-2.5 text-label font-semibold uppercase text-white">
           <LogoMark />
           {p.alias}
         </a>
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav aria-label={p.a11y.menu} className="hidden items-center gap-8 lg:flex">
           {p.nav.map((item) => (
             <a
               key={item.href}
@@ -35,15 +36,19 @@ export function Nav({ p }: { p: Profile }) {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-4 sm:gap-5">
           <a
             href={p.langSwitch.href}
-            hrefLang={p.langSwitch.label.toLowerCase()}
+            hrefLang={p.langSwitch.href.slice(1)}
+            aria-label={p.langSwitch.ariaLabel}
             className="text-label font-semibold uppercase text-ash transition-colors hover:text-spark"
           >
             {p.langSwitch.label}
           </a>
-          <PillButton href={p.cta.href}>{p.cta.label}</PillButton>
+          <div className="hidden sm:block">
+            <PillButton href={p.cta.href}>{p.cta.label}</PillButton>
+          </div>
+          <MobileMenu items={p.nav} cta={p.cta} labels={p.a11y} />
         </div>
       </div>
     </header>
