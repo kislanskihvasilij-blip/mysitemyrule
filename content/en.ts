@@ -38,6 +38,9 @@ export const en = {
       "sales",
       "cold calling",
       "project supervision",
+      "project manager",
+      "IT team management",
+      "3D warehouse",
       "business consulting",
       "Vasiliy Kislyanskikh",
       "kislyanski.v",
@@ -170,7 +173,7 @@ export const en = {
         period: "2 years",
         title: "Non-departmental archive",
         place: "Archive",
-        text: "Document management and record-keeping systems.",
+        text: "Document management and record-keeping systems. Project manager of the “3D warehouse” project: led a team of IT specialists who built a client-facing website with an interactive 3D warehouse.",
       },
       {
         period: "5 years",
