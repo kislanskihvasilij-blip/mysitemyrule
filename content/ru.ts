@@ -254,7 +254,6 @@ export const ru = {
     text: "Расскажите о задаче — отвечу в течение дня и подскажу, как её решить.",
     links: [
       { label: "Telegram", href: "https://t.me/namelesskiss" },
-      { label: "Почта", href: "mailto:lana7258755@mail.ru" },
       { label: "MAX", href: "https://max.ru/u/f9LHodD0cOKJEQgpLgacjJ2AYYwgVxHNJmXTXCMll6BIcajL8LM5EP5MI54" },
       { label: "ВКонтакте", href: "https://vk.ru/kislyanski" },
     ],

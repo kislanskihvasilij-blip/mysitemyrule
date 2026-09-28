@@ -246,7 +246,6 @@ export const en = {
     text: "Tell me about your task — I’ll reply within a day and suggest how to solve it.",
     links: [
       { label: "Telegram", href: "https://t.me/namelesskiss" },
-      { label: "Email", href: "mailto:lana7258755@mail.ru" },
       { label: "MAX", href: "https://max.ru/u/f9LHodD0cOKJEQgpLgacjJ2AYYwgVxHNJmXTXCMll6BIcajL8LM5EP5MI54" },
       { label: "VK", href: "https://vk.ru/kislyanski" },
     ],
