@@ -110,10 +110,10 @@ export const en = {
       text: "Analytics, advertising, IT and design — one specialist instead of several contractors.",
     },
     speed: {
-      title: "Fast websites",
-      text: "A modern stack, optimised images and a 90+ Lighthouse score.",
-      chartLabel: "Load time",
-      chartValue: "0.8 s",
+      title: "Quick help & a strong team",
+      text: "I get on board fast. When a task goes beyond my expertise, I bring in trusted specialists and work as a team.",
+      chartLabel: "Time to start",
+      chartValue: "< 24 h",
     },
     analytics: {
       title: "Measurable results",

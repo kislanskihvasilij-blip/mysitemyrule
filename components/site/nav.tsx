@@ -2,17 +2,23 @@ import type { Profile } from "@/content"
 import { MobileMenu } from "./mobile-menu"
 import { PillButton } from "./ui"
 
+/** Монограмма KV — та же геометрия, что у облака частиц на первом экране */
 function LogoMark() {
   return (
-    <svg viewBox="0 0 24 24" className="size-6" aria-hidden="true">
+    <svg viewBox="26 56 262 188" className="h-5 w-auto" aria-hidden="true">
       <defs>
         <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#8052ff" />
-          <stop offset="1" stopColor="#15846e" />
+          <stop offset="1" stopColor="#3d1f9e" />
         </linearGradient>
       </defs>
-      <path d="M12 2 22 20H2Z" fill="url(#logo-grad)" />
-      <path d="M12 9 17 18H7Z" fill="#000" />
+      <path
+        d="M48 70V230M52 162 140 70M84 128 146 230M166 70 220 228 274 70"
+        fill="none"
+        stroke="url(#logo-grad)"
+        strokeWidth="30"
+        strokeLinejoin="miter"
+      />
     </svg>
   )
 }
