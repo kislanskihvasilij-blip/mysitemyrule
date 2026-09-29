@@ -86,7 +86,7 @@ export const ru = {
     ],
     /** Положите фото в /public/photo.jpg и укажите "/photo.jpg" */
     photo: "/photo-main.webp",
-    photoSecondary: "/photo-city.webp",
+    photoSecondary: "/photo-street.webp",
     photoPlaceholder: "Здесь будет ваше фото",
     facts: [
       { value: "7+ лет", label: "опыта работы" },

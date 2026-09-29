@@ -79,7 +79,7 @@ export const en = {
       "Need advice? Reach out about anything in the fields I’ve worked in or care about — I’ll help you figure out even adjacent problems.",
     ],
     photo: "/photo-main.webp",
-    photoSecondary: "/photo-city.webp",
+    photoSecondary: "/photo-street.webp",
     photoPlaceholder: "Your photo goes here",
     facts: [
       { value: "7+ yrs", label: "of work experience" },
