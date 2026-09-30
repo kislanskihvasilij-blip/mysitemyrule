@@ -141,7 +141,7 @@ export const en = {
         period: "Now",
         title: "Partnership with BariPrint",
         place: "Self-employed · together with Mikhail Bariban",
-        text: "Design and advertising products, vehicle wrapping, client management and project supervision.",
+        text: "Design and advertising products, 3D printing, vehicle wrapping, client management and project supervision.",
       },
       {
         period: "1 year",
@@ -165,7 +165,7 @@ export const en = {
         period: "3 years",
         title: "Own business",
         place: "Self-employed",
-        text: "Design, professional photo shoots and videography, Excel optimisation and automation, digital signature setup and 1C support, key and alarm fob duplication.",
+        text: "Design, 3D printing, professional photo shoots and videography, Excel optimisation and automation, digital signature setup and 1C support, key and alarm fob duplication.",
       },
       {
         period: "2 years",
